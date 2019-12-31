@@ -1,0 +1,1 @@
+eval ifconfig | grep broadcast && ping -c 2 10.12.255.255

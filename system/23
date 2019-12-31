@@ -1,0 +1,8 @@
+En session ssh :
+Ouvrir un terminal 
+lancez la commande ssh user@ipaddress
+
+En session Graphique :
+Lors du demarrage du systeme ,l'OS vous demande d'entre votre 
+        Login: entrez votre nom d'utilisateur.
+        Mot de passe: entrez votre mot de passe.

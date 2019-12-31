@@ -1,0 +1,60 @@
+#!/bin/bash
+cat << "EOF"
+                    .__        __    ________
+  ______ ___________|__|______/  |_  \_____  \
+ /  ___// ___\_  __ \  \____ \   __\   _(__  <
+ \___ \\  \___|  | \/  |  |_> >  |    /       \
+/____  >\___  >__|  |__|   __/|__|   /______  /
+     \/     \/         |__|                 \/
+EOF
+while :
+do
+echo "
+
+----- MENU PRINCIPAL -----
+
+(1) SpeedTest DOWNLOAD/UPDATE
+(2) CryptoCurrency
+(3) Football live scores and results
+
+(4) Q = Quitter
+"
+read choix_menu_principal
+case $choix_menu_principal in 
+	1)
+        echo "\e[32m----- Test De Connection Global -----\e[0m"
+		sudo apt-get install -y speedtest-cli
+		speedtest-cli
+	;;
+	esac
+
+case $choix_menu_principal in 
+	2)
+	echo "\e[32m----- CryptoCurrency -----\e[0m"
+	sudo rm -rf coinbash
+	git clone https://github.com/8go/coinbash.git
+	cd coinbash
+	chmod +x coinbash.sh
+	./coinbash.sh
+	;;
+	esac
+
+case $choix_menu_principal in 
+	3)
+	echo "\e[32m----- Football Standings -----\e[0m"
+		sudo rm -rf soccer-cli
+		git clone https://github.com/architv/soccer-cli
+		cd soccer-cli
+		sudo python setup.py install
+		read  -p "Veillez Choisir la league (PL|PREMIERLEAGUE| FL1|FRENCHLEAGUE| SA|SERIEA BL|BUNDESLIGA)) :" var
+		soccer --standings -l $var
+	;;
+	esac
+
+case $choix_menu_principal in 
+	4 | Q | q | quitter | Quitter)
+	echo "\e[32mL'utilisateur $USER a quitter le programme\e[0m"; 
+	exit 0
+	;;
+esac
+done

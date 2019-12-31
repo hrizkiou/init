@@ -1,0 +1,13 @@
+#!/bin/bash
+cat << "EOF" 
+  _________            .__        __    ________  
+ /   _____/ ___________|__|______/  |_  \_____  \ 
+ \_____  \_/ ___\_  __ \  \____ \   __\  /  ____/ 
+ /        \  \___|  | \/  |  |_> >  |   /       \ 
+/_______  /\___  >__|  |__|   __/|__|   \_______ \
+        \/     \/         |__|                  \/
+EOF
+echo "Saisir le nom de l'utilisateur que vous voulez supprimer :"
+read user
+sudo killall -u $user
+sudo userdel -r $user
